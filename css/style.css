@@ -1,0 +1,166 @@
+.body {
+    /* font-family: 'Inter', sans-serif; */
+    align-items: center;
+}
+
+.caja {
+    position: relative;
+    width: 1440px;
+    height: 1024px;
+    background: #F3F5FC;
+
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 120px;
+    height: 48px;
+    margin: 40px 0 0 40px;
+
+}
+
+#boton {
+    border-radius: 24px;
+    /* font-family: 'Inter'; */
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+}
+
+.botonAzul{
+    background: #0A3871;
+    color: #FFFFFF;
+}
+.botonAzul:hover{
+    background: #072B61;
+}
+.botonTransparente{
+    background-color: transparent;
+    border: 1px solid #0A3871;
+    color: #0A3871;
+}
+.botonTransparente:hover{
+    background: #EFF1FA;
+}
+
+.iniciarJuego{
+    position: absolute;
+    width: 317px;
+    height: 114px;
+    left: 561px;
+    top: 402px;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.ingreso .palabra{
+    resize: none;
+    position: absolute;
+    width: 299px;
+    height: 48px;
+    left: 376px;
+    top: 256px;
+    background: #F3F5FC;
+    border: none;
+    /* font-family: 'Inter'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+}
+.ingreso .palabra::placeholder {
+    /* font-family: 'Inter'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+}
+
+.aclaracion {
+    position: absolute;
+    width: 115px;
+    height: 18px;
+    left: 376px;
+    top: 667px;
+}
+
+.aclaracion p {
+    position: absolute;
+    width: 91px;
+    height: 18px;
+    left: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #495057;
+    opacity: 0.8;
+    display: inline;
+
+}
+
+.nuevaPalabra{
+    position: absolute;
+    width: 280px;
+    height: 67px;
+    left: 579px;
+    top: 554px;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.botonesDoble {
+    position: absolute;
+    width: 688px;
+    height: 67px;
+    left: 376px;
+    top: 701px;
+}
+
+#botonGeneral {
+    width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    /* font-family: 'Inter'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
+
+
+.grafico{
+    display: inline;
+    position: absolute;
+    width: 294px;
+    height: 360px;
+    left: 573px;
+    top: 148px;
+}
+
+.letras{
+    position: absolute;
+    display: inline;
+    align-items: center;
+    height: 152px;
+    top: 628px;
+    background-color: darkgray;
+}
+
+.botonesJuego{
+    top: 886px;
+}
+.invisible{
+    visibility: hidden;
+}
+
+.visible{
+    visibility: visible;
+}

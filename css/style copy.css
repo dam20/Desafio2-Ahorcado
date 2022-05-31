@@ -1,0 +1,237 @@
+.body {
+    font-family: 'Inter', sans-serif;
+}
+
+.caja {
+    position: relative;
+    width: 1440px;
+    height: 1024px;
+    background: #F3F5FC;
+
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 120px;
+    height: 48px;
+    margin: 40px 0 0 40px;
+
+}
+
+
+#button {
+    border-radius: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
+
+.iniciarJuego{
+    position: absolute;
+    width: 317px;
+    height: 114px;
+    left: 561px;
+    top: 402px;
+    background: #0A3871;
+    color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------
+.ingreso textarea {
+    resize: none;
+    position: absolute;
+    width: 577px;
+    height: 625px;
+    left: 240px;
+    top: 168px;
+    background: #F3F5FC;
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+}
+
+.ingreso textarea::placeholder {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+}
+
+.aclaracion {
+    position: absolute;
+    width: 229px;
+    height: 18px;
+    left: 240px;
+    top: 851px;
+}
+
+.aclaracion p {
+    position: absolute;
+    width: 205px;
+    height: 18px;
+    left: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #495057;
+    opacity: 0.8;
+    display: inline;
+
+}
+
+.buttons {
+    position: absolute;
+    width: 680px;
+    height: 67px;
+    left: 240px;
+    top: 885px;
+}
+
+#button {
+    width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+}
+
+.encriptar {
+    background: #0A3871;
+    color: #FFFFFF;
+
+}
+
+.encriptar:hover {
+    background: #072B61;
+}
+
+.desencriptar {
+    position: absolute;
+    right: 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid #0A3871;
+    color: #0A3871;
+}
+
+.desencriptar:hover,.copiar:hover {
+    background: #EFF1FA;
+}
+
+.resultado {
+    position: absolute;
+    width: 400px;
+    height: 944px;
+    left: 1000px;
+    top: 40px;
+    background: white;
+    border-radius: 32px;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+}
+
+.muñeco {
+    position: absolute;
+    width: 336px;
+    height: 304px;
+    left: 32px;
+    top: 243px;
+
+}
+
+.resultado h2 {
+    position: absolute;
+    width: 336px;
+    height: 58px;
+    left: 32px;
+    top: 579px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    text-align: center;
+    color: #343A40;
+
+}
+
+.resultado p {
+    position: absolute;
+    width: 336px;
+    height: 48px;
+    left: 32px;
+    top: 653px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #495057;
+}
+
+.resultado textarea {
+    resize: none;
+    position: absolute;
+    width: 336px;
+    height: 781px;
+    left: 32px;
+    top: 32px;
+    border: none;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+
+
+    color: #495057;
+}
+
+.copiar {
+    box-sizing: border-box;
+    position: absolute;
+    width: 336px;
+    height: 67px;
+    left: 32px;
+    bottom: 32px;
+    background-color: transparent;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    color: #0A3871;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+.visible{
+    visibility: visible;
+}
