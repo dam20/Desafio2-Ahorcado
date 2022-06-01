@@ -10,62 +10,17 @@
     </head>
     <body>
         
-        <main class="caja"> 
+        <main> 
             <div class="logo">
                 <img src="img\Logo.png" alt="">
             </div>
-            <section class="inicio invisible">
-                <input type="button" value="Iniciar Juego" class="iniciarJuego botonAzul" id="boton" onclick="iniciar()">
-                <input type="button" value="Agregar nueva palabra" class="nuevaPalabra botonTransparente" id="boton" onclick="agregarPalabra()">
-            </section>
-
-            <section class="ingreso invisible">
-                <input id="" name="" type="text" placeholder="Ingrese una palabra" class="palabra">
-                <div class="aclaracion">
-                    <i class='bi bi-exclamation-circle-fill' style='color:#495057'></i>
-                    <p>Max. 8 letras</p>
-
-                </div>
-                <div class="botonesDoble">
-                    <input type="button" value="Guardar y Empezar" class="guardarEmpezar botonAzul" id="botonGeneral" onclick="guardar()">
-                    <input type="button" value="Cancelar" class="cancelar botonTransparente" id="botonGeneral" onclick="cancelar()">
-                </div>
-            </section>
             
-            
-            <section class="juego ">
-                
-                <div class="dibujo">
-                    <canvas width="294" height="360" class="grafico"></canvas>
-                </div>
-                <div class="letras">
-                    <p>letras</p>
-                </div>
-                <div class="botonesDoble botonesJuego">
-                    <input type="button" value="Nuevo Juego" class="nuevoJuego botonAzul" id="botonGeneral" onclick="iniciar()">
-                    <input type="button" value="Desistir" class="desistir botonTransparente" id="botonGeneral" onclick="cancelar()">
-                </div>
-            </section>
-            
-
-            <!-- <section class="resultado">
-                <div class="noMensaje visible">
-                    <img src="img\Muneco.png" alt="" class="muñeco">
-                    <h2>Ningún mensaje fue encontrado</h2>
-                    <p>Ingresa el texto que desees encriptar o desencriptar.</p>
-                </div>
-                <div class="mensajeResultado invisible" >
-                    <textarea name="" class="txtResultado" id="" cols="30" rows="10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci montes, sit et diam risus scelerisque vitae est. Tortor maecenas nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit elit. Libero, sodales duis fames id diam feugiat aliquet non egestas.</textarea>
-                    <input type="button" value="Copiar" class="copiar" id="button" onclick="copiar()">
-
-                </div>
-            </section> -->
         </main>
 
         <footer>
 
         </footer>
-        
+        <script src="js\vista.js"></script>
         <script type="text/javascript" src="js\ahorcado.js"></script>
     </body>
 

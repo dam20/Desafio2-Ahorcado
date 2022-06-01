@@ -3,7 +3,7 @@
     align-items: center;
 }
 
-.caja {
+main {
     position: relative;
     width: 1440px;
     height: 1024px;
@@ -22,7 +22,7 @@
 
 }
 
-#boton {
+button {
     border-radius: 24px;
     /* font-family: 'Inter'; */
     font-style: normal;
@@ -104,6 +104,9 @@
     display: inline;
 
 }
+.bi-exclamation-circle-fill{
+    color:#495057
+}
 
 .nuevaPalabra{
     position: absolute;
@@ -133,6 +136,7 @@
     font-size: 16px;
     line-height: 19px;
     text-align: center;
+    margin: 5px;
 }
 
 
