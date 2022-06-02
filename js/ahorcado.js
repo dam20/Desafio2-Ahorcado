@@ -3,7 +3,21 @@ var palabraSorteada="";
 var palabra = [];
 var letrarErroneas =[];
 var intentosRestantes = 8;
-var enJuego = true;
+var enJuego = false;
+
+const horca = [
+    [0, 358, 294, 358, 0],
+    [80, 360, 80, 0, 0],
+    [80, 2, 258, 2, 0]
+];
+const cuerda = [258, 0, 258, 50, 0];
+const cabeza = [258, 80, -(Math.PI) / 2, 1.5 * Math.PI, 30];
+const cuerpo = [258, 110, 258, 245, 0];
+const piernaD = [258, 245, 293, 280, 0];
+const piernaI = [258, 245, 223, 280, 0];
+const brazoD = [258, 110, 293, 145, 0];
+const brazoI = [258, 110, 223, 145, 0];
+
 
 function sortearPalabra(){
     palabraSorteada=palabras[sortearNro()];
@@ -62,34 +76,49 @@ function ganador(){
     enJuego=false;
 
 }
+function perdedor(){
+    console.log("Usted Perdio!!!");
+    enJuego=false;
+
+}
 
 function error(){
     intentosRestantes--;
     switch (intentosRestantes) {
         case 7:
             console.log("Quedan " + intentosRestantes + " intentos.");
+            horca.forEach(function (coordenada) {
+                dibujar(coordenada);
+            });
             break;
         case 6:
             console.log("Quedan " + intentosRestantes + " intentos.");
+            dibujar(cuerda);
             break;
         case 5:
             console.log("Quedan " + intentosRestantes + " intentos.");
+            dibujar(cabeza);
             break;
         case 4:
             console.log("Quedan " + intentosRestantes + " intentos.");
+            dibujar(cuerpo);
             break;
         case 3:
             console.log("Quedan " + intentosRestantes + " intentos.");
+            dibujar(piernaD);
             break;
         case 2:
             console.log("Quedan " + intentosRestantes + " intentos.");
+            dibujar(piernaI);
             break;
         case 1:
             console.log("Quedan " + intentosRestantes + " intentos.");
+            dibujar(brazoD);
             break;
         case 0:
             enJuego = false;
-            console.log("Quedan " + intentosRestantes + " intentos.");
+            dibujar(brazoI);
+            perdedor();
             break;
     }
 }
@@ -97,6 +126,7 @@ function error(){
 function nuevaPartida(){
     reestablecer();
     sortearPalabra();
+    enJuego = true;
 }
 
 function reestablecer(){
@@ -118,54 +148,3 @@ function agregarPalabra(palabra){
 function abandonar(){
     enJuego = false;
 }
-
-/*
-function guardar(){
-
-}
-
-
-function crearTablero(){
-} */
-
-/* var pincel = document.querySelector(".grafico").getContext("2d");
-pincel.beginPath();
-pincel.lineWidth = 4;
-pincel.strokeStyle = "#0A3871";
-var coordenadas = [
-    [0, 358, 294, 358, 0],
-    [80, 360, 80, 0, 0],
-    [80, 2, 258, 2, 0],
-    [258, 0, 258, 50, 0],
-    [258, 80, -(Math.PI) / 2, 1.5 * Math.PI, 30],
-    [258, 110, 258, 245, 0],
-    [258, 245, 293, 280, 0],
-    [258, 245, 223, 280, 0],
-    [258, 110, 293, 145, 0],
-    [258, 110, 223, 145, 0]
-]
-
-coordenadas.forEach(function (coordenada) {
-    var yi = coordenada[1];
-    var xi = coordenada[0];
-    var xf = coordenada[2];
-    var yf = coordenada[3];
-    var rad = coordenada[4];
-    if (rad == 0) {
-        pincel.moveTo(xi, yi);
-        pincel.lineTo(xf, yf);
-        pincel.stroke();
-    }else{
-        pincel.arc(xi, yi, rad, xf, yf, true);
-        pincel.stroke();
-    }
-}); */
-
-
-
-
-
-
-
-
-
