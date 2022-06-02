@@ -1,7 +1,7 @@
 var palabras = ["ALURA", "AHORCADO", "DESAFIO", "JUEGO"];
 var palabraSorteada="";
 var palabra = [];
-var letrarErroneas =[];
+var letrasErroneas =[];
 var intentosRestantes = 8;
 var enJuego = false;
 
@@ -35,7 +35,8 @@ function probarLetra(l){
             colocarLetra(l);
             probarPalabra();
         }else{
-            letrarErroneas.push(l);
+            letrasErroneas.push(l);
+            console.log("probarLetra:" + letrasErroneas);
             error();
         }
     }else{
@@ -44,7 +45,10 @@ function probarLetra(l){
 }
 
 function letraUsada(l){
-    return (palabra.includes(l)||letrarErroneas.includes(l));
+    console.log(palabra.includes(l));
+    console.log(letrasErroneas.includes(l));
+    
+    return (palabra.includes(l)||letrasErroneas.includes(l));
 }
 
 function colocarLetra(l){
@@ -62,6 +66,7 @@ function probarPalabra(){
 
 function verificarTecla(event){
     if (enJuego) {    //si esta en juego
+        console.log("VerificarTecla");
         var keyCode = event.code;
          if (keyCode.includes('Key') //si la tecla presionada es una letra
          || keyCode.includes('Semicolon') // la letra ñ la toma como Semicolon
@@ -74,12 +79,12 @@ function verificarTecla(event){
 function ganador(){
     console.log("Usted Gano!!!");
     enJuego=false;
-
+    reestablecer();
 }
 function perdedor(){
     console.log("Usted Perdio!!!");
     enJuego=false;
-
+    reestablecer();
 }
 
 function error(){
@@ -124,21 +129,19 @@ function error(){
 }
 
 function nuevaPartida(){
-    reestablecer();
     sortearPalabra();
     enJuego = true;
 }
 
 function reestablecer(){
+    console.log("reestablecer: " + letrasErroneas);
     palabraSorteada="";
     palabra = [];
-    letrarErroneas =[];
+    letrasErroneas =[];
     intentosRestantes = 8;
-    enJuego = true;
+    enJuego = false;
+    console.log("Reestablecido" + letrasErroneas);
 }
-
-
-
 
 function agregarPalabra(palabra){
     palabras.push(palabra.toUpperCase());
@@ -146,5 +149,6 @@ function agregarPalabra(palabra){
     nuevaPartida();
 }
 function abandonar(){
-    enJuego = false;
+    reestablecer();
+
 }

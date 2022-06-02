@@ -86,9 +86,11 @@ function agregarListenerIngreso() {
     btnGuardar.addEventListener('click', () => {
         console.log("Se agregó la palabra " + inputPalabra.value);
         agregarPalabra(inputPalabra.value);
+        vistaNuevaPartida();
+        vistaNuevaPartida();
     });
     btnCancelar.addEventListener('click', () => {
-        cancelar();
+        vistaPrincipal();
     });
 }
 
