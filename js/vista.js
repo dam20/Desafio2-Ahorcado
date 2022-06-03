@@ -22,7 +22,7 @@ function crearElemento(tipo, clase, padre) {
 
 
 function limpiarPantalla() {
-    principal.removeChild(principal.lastChild);
+    principal.lastChild.remove();
 }
 
 function vistaPrincipal() {
@@ -45,8 +45,7 @@ function crearBotonesInicio() {
 
 function agregarListenerInicio() {
     btnIniciarJuego.addEventListener('click', () => {
-        nuevaPartida();
-        vistaNuevaPartida();
+        vistaNuevaPartida(nuevaPartida());
     });
     btnNuevaPalabra.addEventListener('click', () => {
         vistaNuevaPalabra();
@@ -65,7 +64,7 @@ function vistaNuevaPalabra() {
     crearElemento("p", "", aclaracion).innerHTML = "Max. 8 letras";
 
     crearBotonesIngreso();
-
+    inputPalabra.focus();
 }
 
 function crearBotonesIngreso() {
@@ -86,23 +85,22 @@ function agregarListenerIngreso() {
     btnGuardar.addEventListener('click', () => {
         console.log("Se agregó la palabra " + inputPalabra.value);
         agregarPalabra(inputPalabra.value);
-        vistaNuevaPartida();
-        vistaNuevaPartida();
+        vistaNuevaPartida(nuevaPartida());
     });
     btnCancelar.addEventListener('click', () => {
         vistaPrincipal();
     });
 }
 
-function vistaNuevaPartida() {
+function vistaNuevaPartida(cantidad) {
     limpiarPantalla();
     juego = crearElemento("section", "partida", principal);
     dibujo = crearElemento("div", "dibujo", juego);
     canvas = crearElemento("canvas", "", dibujo);
-    canvas.setAttribute("width", "294");
-    canvas.setAttribute("height", "360");
+    canvas.setAttribute("width", "1200");
+    canvas.setAttribute("height", "800");
     iniciarPincel(canvas);
-    
+    dibujarLineas(cantidad);
     crearBotonesPartida();
 
 }
@@ -122,16 +120,15 @@ function crearBotonesPartida() {
 
 function agregarListenerPartida() {
     btnNuevaPartida.addEventListener('click', () => {
-        nuevaPartida();
+        vistaNuevaPartida(nuevaPartida());
     });
     btnAbandonar.addEventListener('click', () => {
         abandonar();
-        vistaPrincipal()
+        document.removeEventListener('keyup', verificarTecla);
+        vistaPrincipal();
     });
 
-    document.addEventListener('keyup', (event) => {
-        verificarTecla(event);
-    });
+    document.addEventListener('keyup', verificarTecla);
 }
 
 function iniciarPincel(canvas) {
@@ -142,8 +139,8 @@ function iniciarPincel(canvas) {
 }
 
 function dibujar(coordenada) {
-    var yi = coordenada[1];
     var xi = coordenada[0];
+    var yi = coordenada[1];
     var xf = coordenada[2];
     var yf = coordenada[3];
     var rad = coordenada[4];
@@ -157,41 +154,41 @@ function dibujar(coordenada) {
     }
 }
 
-/* function prueba() {
-    var pincel = document.querySelector("canvas").getContext("2d");
-    pincel.beginPath();
-    pincel.lineWidth = 4;
-    pincel.strokeStyle = "#0A3871";
-    var coordenadas = [
-        [0, 358, 294, 358, 0],
-        [80, 360, 80, 0, 0],
-        [80, 2, 258, 2, 0],
-        [258, 0, 258, 50, 0],
-        [258, 80, -(Math.PI) / 2, 1.5 * Math.PI, 30],
-        [258, 110, 258, 245, 0],
-        [258, 245, 293, 280, 0],
-        [258, 245, 223, 280, 0],
-        [258, 110, 293, 145, 0],
-        [258, 110, 223, 145, 0]
-    ];
+function dibujarLineas(cantidad){
+    var tamaño = 50;
+    var espacio = 8;
+    var x = 600 - ((tamaño+espacio)*cantidad-espacio)/2;
 
-    coordenadas.forEach(function (coordenada) {
-        var yi = coordenada[1];
-        var xi = coordenada[0];
-        var xf = coordenada[2];
-        var yf = coordenada[3];
-        var rad = coordenada[4];
-        if (rad == 0) {
-            pincel.moveTo(xi, yi);
-            pincel.lineTo(xf, yf);
-            pincel.stroke();
-        } else {
-            pincel.arc(xi, yi, rad, xf, yf, true);
-            pincel.stroke();
-        }
-    });
+    for(var i=0; i<cantidad; i++){
+        var xi = x + i * (tamaño+espacio); //568+8=576 600
+        pincel.moveTo(xi, 500);//576 600
+        pincel.lineTo(xi+tamaño, 500);//584 608
+        console.log("linea "+ i + " desde "+ xi + " hasta " + (xi+tamaño));
+    }
+    pincel.stroke();
+}
 
-} */
+function escribirLetraCorrecta(letra,indice){
+    console.log("Letra: "+ letra + " posicion: "+ (600 - (58*palabraSorteada.length-8)+indice*58) + " index: "+ indice);
+    pincel.font = "bold 50px Inter";
+    pincel.lineWidth = 6;
+    pincel.lineCap = "round";
+    pincel.lineJoin = "round"; 
+    pincel.fillStyle = "#0A3871";
+    var posicion = (600 - (58*palabraSorteada.length-8)/2+indice*58) + 8;
+    pincel.fillText(letra, posicion, 480);
+}
+function escribirLetraIncorrecta(letra,indice){
+    console.log("Letra: "+ letra + " posicion: "+ (600 - (46*palabraSorteada.length-6)/2+indice*46) + " index: "+ indice);
+    pincel.font = "bold 30px Inter";
+    pincel.lineWidth = 6;
+    pincel.lineCap = "round";
+    pincel.lineJoin = "round"; 
+    pincel.fillStyle = "#0A3871";
+    var posicion = (600 - (55*8-6)/2+indice*46);
+    pincel.fillText(letra, posicion, 580);
+}
+
 
 vistaPrincipal();
 

@@ -6,17 +6,17 @@ var intentosRestantes = 8;
 var enJuego = false;
 
 const horca = [
-    [0, 358, 294, 358, 0],
-    [80, 360, 80, 0, 0],
-    [80, 2, 258, 2, 0]
+    [453, 396, 747, 396, 0],
+    [533, 396, 533, 38, 0],
+    [533, 38, 711, 38, 0]
 ];
-const cuerda = [258, 0, 258, 50, 0];
-const cabeza = [258, 80, -(Math.PI) / 2, 1.5 * Math.PI, 30];
-const cuerpo = [258, 110, 258, 245, 0];
-const piernaD = [258, 245, 293, 280, 0];
-const piernaI = [258, 245, 223, 280, 0];
-const brazoD = [258, 110, 293, 145, 0];
-const brazoI = [258, 110, 223, 145, 0];
+const cuerda = [711, 38, 711, 88, 0];
+const cabeza = [711, 118, -(Math.PI) / 2, 1.5 * Math.PI, 30];
+const cuerpo = [711, 148, 711, 283, 0];
+const piernaD = [711, 283, 746, 318, 0];
+const piernaI = [711, 283, 676, 318, 0];
+const brazoD = [711, 148, 746, 183, 0];
+const brazoI = [711, 148, 676, 183, 0];
 
 
 function sortearPalabra(){
@@ -36,7 +36,8 @@ function probarLetra(l){
             probarPalabra();
         }else{
             letrasErroneas.push(l);
-            console.log("probarLetra:" + letrasErroneas);
+            //console.log("probarLetra:" + letrasErroneas);
+            escribirLetraIncorrecta(l,letrasErroneas.length);
             error();
         }
     }else{
@@ -45,8 +46,8 @@ function probarLetra(l){
 }
 
 function letraUsada(l){
-    console.log(palabra.includes(l));
-    console.log(letrasErroneas.includes(l));
+    //console.log(palabra.includes(l));
+    //console.log(letrasErroneas.includes(l));
     
     return (palabra.includes(l)||letrasErroneas.includes(l));
 }
@@ -55,9 +56,10 @@ function colocarLetra(l){
     for(var pos = 0; pos < palabraSorteada.length; pos++){
         if(palabraSorteada[pos] == l){
             palabra[pos] = l;
+            escribirLetraCorrecta(l,pos);
         }
     }
-    console.log(palabra);
+    //console.log(palabra);
 }
 
 function probarPalabra(){
@@ -66,7 +68,7 @@ function probarPalabra(){
 
 function verificarTecla(event){
     if (enJuego) {    //si esta en juego
-        console.log("VerificarTecla");
+        //console.log("VerificarTecla");
         var keyCode = event.code;
          if (keyCode.includes('Key') //si la tecla presionada es una letra
          || keyCode.includes('Semicolon') // la letra ñ la toma como Semicolon
@@ -131,22 +133,22 @@ function error(){
 function nuevaPartida(){
     sortearPalabra();
     enJuego = true;
+    return palabraSorteada.length;
 }
 
 function reestablecer(){
-    console.log("reestablecer: " + letrasErroneas);
+    //console.log("reestablecer: " + letrasErroneas);
     palabraSorteada="";
     palabra = [];
     letrasErroneas =[];
     intentosRestantes = 8;
     enJuego = false;
-    console.log("Reestablecido" + letrasErroneas);
+    //console.log("Reestablecido" + letrasErroneas);
 }
 
 function agregarPalabra(palabra){
     palabras.push(palabra.toUpperCase());
-    console.log(palabras);
-    nuevaPartida();
+    //console.log(palabras);
 }
 function abandonar(){
     reestablecer();
