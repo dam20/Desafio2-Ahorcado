@@ -21,7 +21,7 @@ const brazoI = [711, 148, 676, 183, 0];
 
 function sortearPalabra(){
     palabraSorteada=palabras[sortearNro()];
-    console.log("La palabra es: " + palabraSorteada);
+    //console.log("La palabra es: " + palabraSorteada);
     return palabraSorteada;
 }
 
@@ -79,12 +79,14 @@ function verificarTecla(event){
 }
 
 function ganador(){
-    console.log("Usted Gano!!!");
+    //console.log("Usted Gano!!!");
+    vistaGanador();
     enJuego=false;
     reestablecer();
 }
 function perdedor(){
-    console.log("Usted Perdio!!!");
+    //console.log("Usted Perdio!!!");
+    vistaPerdedor();
     enJuego=false;
     reestablecer();
 }
@@ -93,33 +95,33 @@ function error(){
     intentosRestantes--;
     switch (intentosRestantes) {
         case 7:
-            console.log("Quedan " + intentosRestantes + " intentos.");
+            //console.log("Quedan " + intentosRestantes + " intentos.");
             horca.forEach(function (coordenada) {
                 dibujar(coordenada);
             });
             break;
         case 6:
-            console.log("Quedan " + intentosRestantes + " intentos.");
+            //console.log("Quedan " + intentosRestantes + " intentos.");
             dibujar(cuerda);
             break;
         case 5:
-            console.log("Quedan " + intentosRestantes + " intentos.");
+            //console.log("Quedan " + intentosRestantes + " intentos.");
             dibujar(cabeza);
             break;
         case 4:
-            console.log("Quedan " + intentosRestantes + " intentos.");
+            //console.log("Quedan " + intentosRestantes + " intentos.");
             dibujar(cuerpo);
             break;
         case 3:
-            console.log("Quedan " + intentosRestantes + " intentos.");
+            //console.log("Quedan " + intentosRestantes + " intentos.");
             dibujar(piernaD);
             break;
         case 2:
-            console.log("Quedan " + intentosRestantes + " intentos.");
+            //console.log("Quedan " + intentosRestantes + " intentos.");
             dibujar(piernaI);
             break;
         case 1:
-            console.log("Quedan " + intentosRestantes + " intentos.");
+            //console.log("Quedan " + intentosRestantes + " intentos.");
             dibujar(brazoD);
             break;
         case 0:

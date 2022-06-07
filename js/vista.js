@@ -83,7 +83,7 @@ function crearBotonesIngreso() {
 
 function agregarListenerIngreso() {
     btnGuardar.addEventListener('click', () => {
-        console.log("Se agregó la palabra " + inputPalabra.value);
+        //console.log("Se agregó la palabra " + inputPalabra.value);
         agregarPalabra(inputPalabra.value);
         vistaNuevaPartida(nuevaPartida());
     });
@@ -163,13 +163,13 @@ function dibujarLineas(cantidad){
         var xi = x + i * (tamaño+espacio); //568+8=576 600
         pincel.moveTo(xi, 500);//576 600
         pincel.lineTo(xi+tamaño, 500);//584 608
-        console.log("linea "+ i + " desde "+ xi + " hasta " + (xi+tamaño));
+        //console.log("linea "+ i + " desde "+ xi + " hasta " + (xi+tamaño));
     }
     pincel.stroke();
 }
 
 function escribirLetraCorrecta(letra,indice){
-    console.log("Letra: "+ letra + " posicion: "+ (600 - (58*palabraSorteada.length-8)+indice*58) + " index: "+ indice);
+    //console.log("Letra: "+ letra + " posicion: "+ (600 - (58*palabraSorteada.length-8)+indice*58) + " index: "+ indice);
     pincel.font = "bold 50px Inter";
     pincel.lineWidth = 6;
     pincel.lineCap = "round";
@@ -179,7 +179,7 @@ function escribirLetraCorrecta(letra,indice){
     pincel.fillText(letra, posicion, 480);
 }
 function escribirLetraIncorrecta(letra,indice){
-    console.log("Letra: "+ letra + " posicion: "+ (600 - (46*palabraSorteada.length-6)/2+indice*46) + " index: "+ indice);
+    //console.log("Letra: "+ letra + " posicion: "+ (600 - (46*palabraSorteada.length-6)/2+indice*46) + " index: "+ indice);
     pincel.font = "bold 30px Inter";
     pincel.lineWidth = 6;
     pincel.lineCap = "round";
@@ -189,7 +189,16 @@ function escribirLetraIncorrecta(letra,indice){
     pincel.fillText(letra, posicion, 580);
 }
 
-
+function vistaGanador(){
+    pincel.font = "bold 60px Inter";
+    pincel.fillStyle = "#08FF00";
+    pincel.fillText("Ganaste, felicidades!", 300, 670);
+}
+function vistaPerdedor(){
+    pincel.font = "bold 60px Inter";
+    pincel.fillStyle = "#FF0000";
+    pincel.fillText( "Fin del juego!", 415, 670);
+}
 vistaPrincipal();
 
 
